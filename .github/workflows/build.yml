@@ -1,0 +1,28 @@
+name: Build s9pk
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install StartOS SDK
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/Start9Labs/start-sdk/master/install.sh | sh
+          echo "$HOME/.startos/bin" >> $GITHUB_PATH
+
+      - name: Build Package
+        run: |
+          make x86
+          
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: crawl4ai-s9pk
+          path: ./*.s9pk

@@ -1,0 +1,12 @@
+{
+  "name": "crawl4ai-startos",
+  "version": "0.1.0",
+  "description": "Crawl4AI package for StartOS",
+  "main": "index.js",
+  "scripts": {
+    "build": "start-sdk build"
+  },
+  "dependencies": {
+    "@start9labs/start-sdk": "^0.4.0"
+  }
+}
