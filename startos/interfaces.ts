@@ -1,18 +1,25 @@
-import { setupInterfaces } from '@start9labs/start-sdk'
+import { i18n } from './i18n'
+import { sdk } from './sdk'
+import { uiPort } from './utils'
 
-export const interfaces = setupInterfaces(async ({ sdk }) => {
-  const api = sdk.interfaces.add({
+export const setInterfaces = sdk.setupInterfaces(async ({ effects }) => {
+  const uiMulti = sdk.MultiHost.of(effects, 'ui-multi')
+  const uiMultiOrigin = await uiMulti.bindPort(uiPort, {
+    protocol: 'http',
+  })
+  const ui = sdk.createInterface(effects, {
+    name: i18n('Crawl4AI API'),
     id: 'api',
-    name: 'Crawl4AI API',
-    description: 'The Crawl4AI REST API for web crawling and scraping.',
-    lan: {
-      port: 11235,
-      protocol: 'http',
-    },
-    ui: false, // No web UI, just an API
+    description: i18n('The Crawl4AI REST API, used by tools such as Open WebUI.'),
+    type: 'api',
+    masked: false,
+    schemeOverride: null,
+    username: null,
+    path: '',
+    query: {},
   })
 
-  return sdk.interfaces({
-    interfaces: [api],
-  })
+  const uiReceipt = await uiMultiOrigin.export([ui])
+
+  return [uiReceipt]
 })

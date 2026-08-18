@@ -1,5 +1,5 @@
-import { setupBackups } from '@start9labs/start-sdk'
+import { sdk } from './sdk'
 
-export const backups = setupBackups(async ({ sdk }) => {
-  return sdk.Backups.ofVolumes('main')
-})
+export const { createBackup, restoreInit } = sdk.setupBackups(
+  async ({ effects }) => sdk.Backups.ofVolumes('main'),
+)
