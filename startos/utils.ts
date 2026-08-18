@@ -1,4 +1,2 @@
-// Here we define any constants or functions that are shared by multiple components
-// throughout the package codebase. This file will be unnecessary for many packages.
-
-export const uiPort = 11235
+export const port = 11235
+export const apiHostId = 'api-multi'

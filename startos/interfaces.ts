@@ -1,16 +1,16 @@
 import { i18n } from './i18n'
 import { sdk } from './sdk'
-import { uiPort } from './utils'
+import { apiHostId, port } from './utils'
 
 export const setInterfaces = sdk.setupInterfaces(async ({ effects }) => {
-  const uiMulti = sdk.MultiHost.of(effects, 'ui-multi')
-  const uiMultiOrigin = await uiMulti.bindPort(uiPort, {
+  const apiMulti = sdk.MultiHost.of(effects, apiHostId)
+  const apiMultiOrigin = await apiMulti.bindPort(port, {
     protocol: 'http',
   })
-  const ui = sdk.createInterface(effects, {
+  const api = sdk.createInterface(effects, {
     name: i18n('Crawl4AI API'),
     id: 'api',
-    description: i18n('The Crawl4AI REST API, used by tools such as Open WebUI.'),
+    description: i18n('Your Crawl4AI API'),
     type: 'api',
     masked: false,
     schemeOverride: null,
@@ -19,7 +19,7 @@ export const setInterfaces = sdk.setupInterfaces(async ({ effects }) => {
     query: {},
   })
 
-  const uiReceipt = await uiMultiOrigin.export([ui])
+  const apiReceipt = await apiMultiOrigin.export([api])
 
-  return [uiReceipt]
+  return [apiReceipt]
 })

@@ -1,52 +1,5 @@
-import { LangDict } from './default'
+import type { LangDict } from './default'
 
-export default {
-  es_ES: {
-    0: '¡Iniciando Crawl4AI!',
-    1: 'API de Crawl4AI',
-    2: 'La API de Crawl4AI está lista',
-    3: 'La API de Crawl4AI no está lista',
-    4: 'La API REST de Crawl4AI, utilizada por herramientas como Open WebUI.',
-    5: 'Establecer token de API',
-    6: 'Genera un nuevo token de API aleatorio para la API de Crawl4AI. Reemplaza cualquier token existente.',
-    7: 'Token de API',
-    8: 'Usa este token como token Bearer al llamar a la API de Crawl4AI.',
-    9: 'Establece el token de API antes de que el servicio pueda iniciarse',
-  },
-  de_DE: {
-    0: 'Starte Crawl4AI!',
-    1: 'Crawl4AI-API',
-    2: 'Die Crawl4AI-API ist bereit',
-    3: 'Die Crawl4AI-API ist nicht bereit',
-    4: 'Die Crawl4AI-REST-API, die von Werkzeugen wie Open WebUI verwendet wird.',
-    5: 'API-Token festlegen',
-    6: 'Generiert ein neues zufälliges API-Token für die Crawl4AI-API. Ersetzt ein vorhandenes Token.',
-    7: 'API-Token',
-    8: 'Verwenden Sie dieses Token als Bearer-Token beim Aufruf der Crawl4AI-API.',
-    9: 'Legen Sie das API-Token fest, bevor der Dienst gestartet werden kann',
-  },
-  pl_PL: {
-    0: 'Uruchamianie Crawl4AI!',
-    1: 'API Crawl4AI',
-    2: 'API Crawl4AI jest gotowa',
-    3: 'API Crawl4AI nie jest gotowa',
-    4: 'API REST Crawl4AI, używane przez narzędzia takie jak Open WebUI.',
-    5: 'Ustaw token API',
-    6: 'Generuje nowy losowy token API dla Crawl4AI. Zastępuje istniejący token.',
-    7: 'Token API',
-    8: 'Użyj tego tokena jako tokena Bearer podczas wywoływania API Crawl4AI.',
-    9: 'Ustaw token API, zanim usługa będzie mogła zostać uruchomiona',
-  },
-  fr_FR: {
-    0: 'Démarrage de Crawl4AI !',
-    1: 'API Crawl4AI',
-    2: "L'API Crawl4AI est prête",
-    3: "L'API Crawl4AI n'est pas prête",
-    4: "L'API REST de Crawl4AI, utilisée par des outils tels qu'Open WebUI.",
-    5: 'Définir le jeton API',
-    6: "Génère un nouveau jeton API aléatoire pour l'API Crawl4AI. Remplace tout jeton existant.",
-    7: 'Jeton API',
-    8: "Utilisez ce jeton comme jeton Bearer lors de l'appel à l'API Crawl4AI.",
-    9: "Définissez le jeton API avant que le service ne puisse démarrer",
-  },
-} satisfies Record<string, LangDict>
+const translations = {} satisfies Record<string, LangDict>
+
+export default translations
