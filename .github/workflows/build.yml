@@ -19,7 +19,7 @@ jobs:
 
       - name: Build Package
         run: |
-          make x86
+          make
           
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
